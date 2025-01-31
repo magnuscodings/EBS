@@ -49,6 +49,11 @@ class ClientActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        binding.btnInbox.setOnClickListener {
+            val intent = Intent(this, InboxActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupChart() {

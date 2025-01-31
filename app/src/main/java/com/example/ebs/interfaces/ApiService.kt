@@ -57,6 +57,8 @@ interface ApiService {
     @GET("api/meter/{meterId}/last-reading")
     suspend fun getPreviousReading(@Path("meterId") meterId: Int): Response<ApiResponse<MeterReading>>
 
+
+
     @GET("api/client/me")
     suspend fun getClientDetails(
         @Header("Authorization") token: String
