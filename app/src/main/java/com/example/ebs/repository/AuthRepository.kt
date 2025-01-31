@@ -7,6 +7,7 @@ import com.example.ebs.models.User
 import com.example.ebs.requests.ForgotRequest
 import com.example.ebs.requests.LoginRequest
 import com.example.ebs.responses.ApiResponse
+import com.example.ebs.responses.BillingData
 import com.example.ebs.responses.ForgotResponse
 import com.example.ebs.responses.LoginResponse
 import org.json.JSONObject
@@ -99,6 +100,50 @@ class AuthRepository(private val apiService: ApiService) {
             }
         } catch (e: Exception) {
             "Exception: ${e.message}"
+        }
+    }
+
+//    suspend fun getBillingStatus(clientID: String): String {
+//        return try {
+//            val response = apiService.getBillingStatus(clientID) // Fix function call
+//            if (response.isSuccessful) {
+//                val body = response.body()
+//                if (body != null) {
+//                    "Billing Count: ${body.count}"  // Return meaningful data
+//                } else {
+//                    "Error: Response body is null"
+//                }
+//            } else {
+//                "Error: ${response.errorBody()?.string() ?: "Unknown error"}"
+//            }
+//        } catch (e: Exception) {
+//            "Exception: ${e.message}"
+//        }
+//    }
+
+//    suspend fun getBillingStatus(clientID: String): List<BillingData> {
+//        return try {
+//            val response = apiService.getBillingStatus(clientID)
+//            if (response.isSuccessful) {
+//                response.body()?.data ?: emptyList() // Return list of billing data
+//            } else {
+//                emptyList()
+//            }
+//        } catch (e: Exception) {
+//            emptyList()
+//        }
+//    }
+
+    suspend fun getBillingStatus(clientID: String): List<BillingData> {
+        return try {
+            val response = apiService.getBillingStatus(clientID)
+            if (response.isSuccessful) {
+                response.body()?.data ?: emptyList() // ✅ Ensure it returns List<BillingData>
+            } else {
+                emptyList()
+            }
+        } catch (e: Exception) {
+            emptyList()
         }
     }
 

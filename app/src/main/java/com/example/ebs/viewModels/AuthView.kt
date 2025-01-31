@@ -11,6 +11,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.ebs.NetworkUtils
 import com.example.ebs.models.User
 import com.example.ebs.requests.ChangePasswordRequest
+import com.example.ebs.responses.BillingData
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -40,6 +41,13 @@ class AuthViewModel : ViewModel() {
 
     private val _user = MutableLiveData<User>()
     val user: LiveData<User> = _user
+
+    private val _billingStatus = MutableLiveData<List<BillingData>>()
+    val billingStatus: LiveData<List<BillingData>> get() = _billingStatus
+
+
+    private val _billingData = MutableLiveData<List<BillingData>>()
+    val billingData: LiveData<List<BillingData>> get() = _billingData
 
     fun login(email: String, password: String) {
         viewModelScope.launch {
@@ -79,6 +87,20 @@ class AuthViewModel : ViewModel() {
                 Toast.makeText(context, message, Toast.LENGTH_LONG).show() // Show message
                 Log.d("ForgotTester", message) // Log message for debugging
             }
+        }
+    }
+
+//    fun getRowsBillingStatus(clientID: String) {
+//        viewModelScope.launch {
+//            val message = authRepository.getBillingStatus(clientID) // Fix function call
+//            _billingStatus.postValue(message) // Notify UI with result
+//        }
+//    }
+
+    fun getRowsBillingStatus(clientID: String) {
+        viewModelScope.launch {
+            val result = authRepository.getBillingStatus(clientID)
+            _billingStatus.postValue(result)
         }
     }
 

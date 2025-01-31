@@ -9,6 +9,7 @@ import com.example.ebs.requests.ForgotRequest
 import com.example.ebs.requests.LoginRequest
 import com.example.ebs.requests.StoreMeterReadingRequest
 import com.example.ebs.responses.ApiResponse
+import com.example.ebs.responses.BillingResponse
 import com.example.ebs.responses.ForgotResponse
 import com.example.ebs.responses.LoginResponse
 import retrofit2.Response
@@ -57,6 +58,11 @@ interface ApiService {
     @GET("api/meter/{meterId}/last-reading")
     suspend fun getPreviousReading(@Path("meterId") meterId: Int): Response<ApiResponse<MeterReading>>
 
+//    @GET("api/billingNotification/{clientID}")
+//    suspend fun getBillingStatus(@Path("clientID") clientID: String): Response<BillingResponse>
+
+    @GET("api/billingNotification/{clientID}")
+    suspend fun getBillingStatus(@Path("clientID") clientID: String): Response<BillingResponse>
 
 
     @GET("api/client/me")

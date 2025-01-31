@@ -54,6 +54,8 @@ class ClientActivity : AppCompatActivity() {
             val intent = Intent(this, InboxActivity::class.java)
             startActivity(intent)
         }
+
+
     }
 
     private fun setupChart() {

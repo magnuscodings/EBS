@@ -6,4 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".InboxActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/closeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Circular Close Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/closeButton"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:backgroundTint="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="10dp"
+        android:tint="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/recyclerView"
+        app:elevation="6dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
