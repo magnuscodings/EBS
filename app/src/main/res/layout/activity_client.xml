@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Billing Details"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_gravity="start"/>
+
+            <ImageButton
+                android:id="@+id/btnProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Logout"
+                android:src="@drawable/ic_account"
+                app:tint="@color/white" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/clientDetailsCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            android:layout_margin="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Existing client details -->
+                <TextView
+                    android:id="@+id/tvClientName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- Meter Information -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Meter Code"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvMeterCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Outstanding Balance"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvMeterBalance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/design_default_color_error"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Consumption Graph Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/consumptionCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            android:layout_margin="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clientDetailsCard">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Consumption History"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/consumptionChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Existing RecyclerView for billings -->
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/consumptionCard">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/billingsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

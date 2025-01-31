@@ -1,0 +1,53 @@
+[versions]
+agp = "8.1.4"
+kotlin = "1.9.24"
+coreKtx = "1.10.1"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+appcompat = "1.6.1"
+material = "1.10.0"
+activity = "1.8.0"
+constraintlayout = "2.1.4"
+
+#Custom values
+retrofit = "2.9.0"
+retrofitConverter = "2.9.0"
+coroutines = "1.7.3"
+lifecycle = "2.6.2"
+ktx = "1.8.1"
+swiperefreshlayout = "1.1.0"
+firebase-messaging = "23.4.0"
+firebase-analytics = "21.5.0"
+google-services = "4.4.0"
+android-chart-version = "3.1.0"
+fragment-ktx-version = "1.6.2"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-fragmentKtx = {module="androidx.fragment:fragment-ktx", version.ref="fragment-ktx-version"}
+
+# Custom libraries
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitConverter" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "ktx" }
+androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
+firebase-messaging = { module = "com.google.firebase:firebase-messaging-ktx", version.ref = "firebase-messaging" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics-ktx", version.ref = "firebase-analytics" }
+mpAndroidChart = { module = "com.github.PhilJay:MPAndroidChart", version.ref = "android-chart-version"}
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
+

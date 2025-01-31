@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EBS" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#1D4ED8</item> <!-- Blue -->
+        <item name="colorPrimaryContainer">#1E40AF</item> <!-- Darker Blue -->
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSurface">#1F2937</item> <!-- Dark Gray -->
+        <item name="android:statusBarColor">#111827</item> <!-- Dark Status Bar -->
+        <item name="android:windowLightStatusBar">false</item> <!-- Light icons in status bar -->
+    </style>
+</resources>
+

@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EBS" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#1D4ED8</item> <!-- Changes default primary color -->
+        <item name="colorPrimaryContainer">#1D4ED8</item>
+    </style>
+
+    <style name="Theme.EBS" parent="Base.Theme.EBS" />
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>
