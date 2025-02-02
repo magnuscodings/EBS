@@ -36,6 +36,10 @@ class ProfileActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Profile"
+
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed() // Handles back navigation
+        }
     }
 
     private fun setupObservers() {

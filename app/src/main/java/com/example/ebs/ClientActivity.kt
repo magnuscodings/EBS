@@ -47,7 +47,7 @@ class ClientActivity : AppCompatActivity() {
         binding.btnProfile.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
-            finish()
+//            finish()
         }
 
         binding.btnInbox.setOnClickListener {
