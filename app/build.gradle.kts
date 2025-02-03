@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.mpAndroidChart)
     implementation(libs.androidx.fragmentKtx)
+    implementation("androidx.work:work-runtime-ktx:2.7.0")
 
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.analytics)

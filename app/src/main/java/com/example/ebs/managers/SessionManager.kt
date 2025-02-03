@@ -15,5 +15,13 @@ class SessionManager(private val context: Context) {
 
     fun clearSession() {
         sharedPreferences.edit().clear().apply()
+        clearProcessedBillingIds()
+    }
+
+    private fun clearProcessedBillingIds() {
+        val sharedPreferences = context.getSharedPreferences("billing_preferences", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.remove("processed_billing_ids")  // Clear the set of processed billing IDs
+        editor.apply()
     }
 }

@@ -40,7 +40,7 @@ class ReaderActivity : AppCompatActivity() {
             // Navigate to login activity
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
-//            finish()
+//            finish();
         }
     }
 
